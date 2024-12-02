@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Fire Tournament Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #111;
+      color: white;
+    }
+
+    .particle-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://path/to/animated-bg.gif') center/cover no-repeat;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      color: black;
+    }
+
+    .hover-card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="relative p-4 bg-black shadow-md">
+    <div class="particle-bg"></div>
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold">Free Fire Tournament</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="#tournaments" class="hover:underline">Tournaments</a></li>
+          <li><a href="#registration" class="hover:underline">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Landing Section -->
+  <main class="min-h-screen flex flex-col justify-center items-center">
+    <h2 class="text-4xl font-bold mt-8">Choose Your Tournament</h2>
+    <div id="tournaments" class="flex space-x-6 mt-10">
+      <div class="hover-card bg-gray-800 p-8 rounded-lg shadow-md" onclick="openForm('cs')">
+        <h3 class="text-xl font-semibold mb-4">CS Tournament</h3>
+        <p>4 Players</p>
+        <button class="mt-4 p-2 bg-blue-500 text-white rounded">Register Now</button>
+      </div>
+      <div class="hover-card bg-gray-800 p-8 rounded-lg shadow-md" onclick="openForm('couple')">
+        <h3 class="text-xl font-semibold mb-4">Couple Tournament</h3>
+        <p>2 Players</p>
+        <button class="mt-4 p-2 bg-blue-500 text-white rounded">Register Now</button>
+      </div>
+      <div class="hover-card bg-gray-800 p-8 rounded-lg shadow-md" onclick="openForm('br')">
+        <h3 class="text-xl font-semibold mb-4">BR Wars</h3>
+        <p>4 Players</p>
+        <button class="mt-4 p-2 bg-blue-500 text-white rounded">Register Now</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Registration Forms Section -->
+  <section id="registration" class="min-h-screen p-10 bg-gray-900">
+    <h2 class="text-3xl text-center mb-8">Register Your Team</h2>
+
+    <!-- CS Tournament Form -->
+    <form id="cs-form" class="hidden form-section" onsubmit="handleSubmit(event, 'CS Tournament')">
+      <h3 class="text-xl mb-4">CS Tournament Registration (4 Players)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Player 1 -->
+        <input type="text" name="player1_name" placeholder="Player 1 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player1_in_game_name" placeholder="Player 1 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player1_in_game_id" placeholder="Player 1 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player1_whatsapp" placeholder="Player 1 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 2 -->
+        <input type="text" name="player2_name" placeholder="Player 2 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player2_in_game_name" placeholder="Player 2 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player2_in_game_id" placeholder="Player 2 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player2_whatsapp" placeholder="Player 2 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 3 -->
+        <input type="text" name="player3_name" placeholder="Player 3 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player3_in_game_name" placeholder="Player 3 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player3_in_game_id" placeholder="Player 3 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player3_whatsapp" placeholder="Player 3 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 4 -->
+        <input type="text" name="player4_name" placeholder="Player 4 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player4_in_game_name" placeholder="Player 4 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player4_in_game_id" placeholder="Player 4 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player4_whatsapp" placeholder="Player 4 WhatsApp Number" class="block w-full p-2 mb-4" required>
+      </div>
+      <button type="submit" class="p-2 bg-green-500 rounded">Submit</button>
+    </form>
+
+    <!-- Couple Tournament Form -->
+    <form id="couple-form" class="hidden form-section" onsubmit="handleSubmit(event, 'Couple Tournament')">
+      <h3 class="text-xl mb-4">Couple Tournament Registration (2 Players)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Player 1 -->
+        <input type="text" name="player1_name" placeholder="Player 1 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player1_in_game_name" placeholder="Player 1 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player1_in_game_id" placeholder="Player 1 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player1_whatsapp" placeholder="Player 1 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 2 -->
+        <input type="text" name="player2_name" placeholder="Player 2 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player2_in_game_name" placeholder="Player 2 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player2_in_game_id" placeholder="Player 2 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player2_whatsapp" placeholder="Player 2 WhatsApp Number" class="block w-full p-2 mb-4" required>
+      </div>
+      <button type="submit" class="p-2 bg-green-500 rounded">Submit</button>
+    </form>
+
+    <!-- BR Wars Tournament Form -->
+    <form id="br-form" class="hidden form-section" onsubmit="handleSubmit(event, 'BR Wars Tournament')">
+      <h3 class="text-xl mb-4">BR Wars Tournament Registration (4 Players)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Player 1 -->
+        <input type="text" name="player1_name" placeholder="Player 1 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player1_in_game_name" placeholder="Player 1 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player1_in_game_id" placeholder="Player 1 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player1_whatsapp" placeholder="Player 1 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 2 -->
+        <input type="text" name="player2_name" placeholder="Player 2 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player2_in_game_name" placeholder="Player 2 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player2_in_game_id" placeholder="Player 2 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player2_whatsapp" placeholder="Player 2 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 3 -->
+        <input type="text" name="player3_name" placeholder="Player 3 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player3_in_game_name" placeholder="Player 3 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player3_in_game_id" placeholder="Player 3 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player3_whatsapp" placeholder="Player 3 WhatsApp Number" class="block w-full p-2 mb-4" required>
+        <!-- Player 4 -->
+        <input type="text" name="player4_name" placeholder="Player 4 Name" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player4_in_game_name" placeholder="Player 4 In-game Name" class="block w-full p-2 mb-4" required>
+        <input type="number" name="player4_in_game_id" placeholder="Player 4 In-game ID" class="block w-full p-2 mb-4" required>
+        <input type="text" name="player4_whatsapp" placeholder="Player 4 WhatsApp Number" class="block w-full p-2 mb-4" required>
+      </div>
+      <button type="submit" class="p-2 bg-green-500 rounded">Submit</button>
+    </form>
+  </section>
+
+  <script>
+  function openForm(tournament) {
+    const forms = document.querySelectorAll('.form-section');
+    forms.forEach(form => form.classList.add('hidden'));
+    document.getElementById(tournament + '-form').classList.remove('hidden');
+  }
+
+  function handleSubmit(event, tournament) {
+    event.preventDefault();  // Prevent form submission from reloading the page
+
+    const formData = new FormData(event.target);
+    const data = {};
+    
+    // Collect form data
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    // Log the data to check if it's being captured correctly
+    console.log("Form Data:", data);
+
+    // Make the fetch request to Google Apps Script
+    fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        tournament,
+        ...data,
+      }),
+    }).then(response => {
+      if (response.ok) {
+        alert('Registration Successful!');
+      } else {
+        alert('Failed to register!');
+      }
+    }).catch((error) => {
+      console.error('Error during submission:', error);
+      alert('There was an error during submission. Please try again.');
+    });
+  }
+</script>
+
+</body>
+
+</html>
